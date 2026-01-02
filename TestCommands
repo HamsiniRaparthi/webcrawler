@@ -1,0 +1,15 @@
+1. Testing Individual Components
+mvn test "-Dtest=ConfigurationLoaderTest"
+mvn test "-Dtest=CrawlResultWriterTest"
+mvn test "-Dtest=WebCrawlerTest" "-DcrawlerImplementations=com.udacity.webcrawler.SequentialWebCrawler"
+mvn test "-Dtest=WebCrawlerTest,ParallelWebCrawlerTest"
+mvn test "-Dtest=WordCountsTest"
+mvn test "-Dtest=ProfilerImplTest"
+2. Building the Project
+mvn package "-Dmaven.test.skip=true"
+3. Running the Crawler
+java -cp target/udacity-webcrawler-1.0.jar com.udacity.webcrawler.main.WebCrawlerMain src/main/java/com/udacity/webcrawler/main/config/sample_config_sequential.json
+mvn exec:java "-Dexec.mainClass=com.udacity.webcrawler.main.WebCrawlerMain" "-Dexec.args=src/main/java/com/udacity/webcrawler/main/config/sample_config.json"
+4. Final Verification
+mvn test
+mvn clean package
